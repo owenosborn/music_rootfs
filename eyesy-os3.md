@@ -1,6 +1,6 @@
 # General 
 
-Start with raspbian lite, the last version of Buster (https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip). Boot it up so that the resize partition thing happens. Then shutdown and create another primary partition with ext4 (give about 5 GB to root, 3 GB to the new one) using gparted or whatever from another machine.
+Start with lite version of latest (bookworm). Boot it up so that the resize partition thing happens. Then shutdown and create another primary partition with ext4 (give about 5 GB to root, 3 GB to the new one) using gparted or whatever from another machine.
 
 It should ask to create new user. use music,music
 
@@ -36,25 +36,12 @@ configure
     
 pull down this repo
 
-    git clone https://github.com/owenosborn/Organelle_M_rootfs.git
-    cd Organelle_M_rootfs
+    git clone https://github.com/owenosborn/music_rootfs.git
+    cd music_rootfs
 
 # setup WM8731 audio driver with SPI control
 
-fix audio driver for spi (replace 4.19.42 with whatever kernel version running)
-
-first have to uncompress kernel module and get rid of the compressed one
-
-    cd /lib/modules/6.6.31+rpt-rpi-v7/kernel/sound/soc/bcm
-    sudo unxz snd-soc-audioinjector-pi-soundcard.ko.xz
- 
-    cd ~/Organelle_M_rootfs/audio
-    sudo ./fixit.sh /lib/modules/6.6.31+rpt-rpi-v7/kernel/sound/soc/bcm/snd-soc-audioinjector-pi-soundcard.ko
-
-compile new dt overlay for spi
-
-    sudo cp audioinjector-wm8731-audio-spi-overlay.dts /boot
-    sudo dtc -@ -I dts -O dtb -o /boot/overlays/wm8731-spi.dtbo /boot/audioinjector-wm8731-audio-spi-overlay.dts
+    check music_rootfs/audio-linux-6.6 for info
 
 # config.txt
 
@@ -81,8 +68,9 @@ add these:
 reboot
 
 # install packages 
-   
-    sudo apt-get install zip jwm xinit x11-utils x11-xserver-utils lxterminal pcmanfm adwaita-icon-theme gnome-themes-standard gtk-theme-switch conky libasound2-dev liblo-dev liblo-tools python-pip mpg123 dnsmasq hostapd puredata wiringpi cython python-liblo python-cherrypy3 swig python-pygame python-psutil python-alsaaudio fbi
+  sudo apt-get install zip jwm xinit x11-utils x11-xserver-utils lxterminal pcmanfm adwaita-icon-theme gtk-theme-switch conky libasound2-dev liblo-dev liblo-tools mpg123 dnsmasq hostapd puredata swig fbi
+
+sudo apt-get install gnome-themes-extra python3-pip python3-liblo python3-pygame python3-psutil
    
 # config
 
