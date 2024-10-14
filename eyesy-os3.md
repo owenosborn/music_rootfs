@@ -41,7 +41,14 @@ pull down this repo
 
 # setup WM8731 audio driver with SPI control
 
-    check music_rootfs/audio-linux-6.6 for info
+check music_rootfs/audio-linux-6.6 for info
+disable defaut card:
+sudo echo "blacklist snd_soc_hdmi_codec" | sudo tee /etc/modprobe.d/blacklist-snd_soc_hdmi_codec.conf
+
+also add this to blacklist file
+install snd_soc_hdmi_codec /bin/true
+
+or maybe disable the default card using raspi-config or somethingt 
 
 # config.txt
 
@@ -71,7 +78,18 @@ reboot
   sudo apt-get install zip jwm xinit x11-utils x11-xserver-utils lxterminal pcmanfm adwaita-icon-theme gtk-theme-switch conky libasound2-dev liblo-dev liblo-tools mpg123 dnsmasq hostapd puredata swig fbi
 
 sudo apt-get install gnome-themes-extra python3-pip python3-liblo python3-pygame python3-psutil
-   
+
+this doesn't work:
+
+pip install pyalsaaudio
+
+so install from source
+wget https://files.pythonhosted.org/packages/21/a6/3d833079b030d449345e35ce0e2874e330d3612135734f07b9ceace25bcf/pyalsaaudio-0.11.0.tar.gz
+tar xvzf pyalsaaudio-0.11.0.tar.gz
+cd pyalsaaudio-0.11.0
+python3 setup.py build
+sudo python3 setup.py install
+
 # config
 
     sudo systemctl disable hciuart.service
