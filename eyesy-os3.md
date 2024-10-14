@@ -90,6 +90,7 @@ cd pyalsaaudio-0.11.0
 python3 setup.py build
 sudo python3 setup.py install
 
+
 # config
 
     sudo systemctl disable hciuart.service
@@ -324,4 +325,26 @@ on another machine dd and zip it up
 
     sudo dd if=/dev/rdisk1 of=EYESY-v3.0.img bs=1m
     zip -db EYESY-v2.0.img.zip EYESY-v3.0.img
+
+# experimental zone
+
+maybe also use swapoff in cmdline.txt
+
+# wiringpi
+sudo apt install git
+git clone https://github.com/WiringPi/WiringPi.git
+cd WiringPi
+
+# build the package
+./build debian
+mv debian-template/wiringpi-3.0-1.deb .
+
+# install it
+sudo apt install ./wiringpi-3.0-1.deb
+
+
+
+
+
+
 
