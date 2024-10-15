@@ -79,18 +79,6 @@ reboot
 
 sudo apt-get install gnome-themes-extra python3-pip python3-liblo python3-pygame python3-psutil
 
-this doesn't work:
-
-pip install pyalsaaudio
-
-so install from source
-wget https://files.pythonhosted.org/packages/21/a6/3d833079b030d449345e35ce0e2874e330d3612135734f07b9ceace25bcf/pyalsaaudio-0.11.0.tar.gz
-tar xvzf pyalsaaudio-0.11.0.tar.gz
-cd pyalsaaudio-0.11.0
-python3 setup.py build
-sudo python3 setup.py install
-
-
 # config
 
     sudo systemctl disable hciuart.service
@@ -330,21 +318,24 @@ on another machine dd and zip it up
 
 maybe also use swapoff in cmdline.txt
 
-# wiringpi
-sudo apt install git
-git clone https://github.com/WiringPi/WiringPi.git
-cd WiringPi
+this doesn't work:
 
-# build the package
-./build debian
-mv debian-template/wiringpi-3.0-1.deb .
+    pip install pyalsaaudio
 
-# install it
-sudo apt install ./wiringpi-3.0-1.deb
+so install from source
+    wget https://files.pythonhosted.org/packages/21/a6/3d833079b030d449345e35ce0e2874e330d3612135734f07b9ceace25bcf/pyalsaaudio-0.11.0.tar.gz
+    tar xvzf pyalsaaudio-0.11.0.tar.gz
+    cd pyalsaaudio-0.11.0
+    python3 setup.py build
+    sudo python3 setup.py install
 
+install wiring pi 
+    git clone https://github.com/WiringPi/WiringPi.git
+    cd WiringPi
+    ./build debian
+    mv debian-template/wiringpi_3.10_armhf.deb .
+    sudo apt install ./wiringpi_3.10_armhf.deb
+    sudo apt install ./wiringpi-3.0-1.deb
 
-
-
-
-
-
+use this for CPU 
+    echo -n performance | sudo tee /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
