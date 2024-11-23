@@ -1,16 +1,12 @@
 # General 
 
-Start with lite version of latest (bookworm). Boot it up so that the resize partition thing happens. Then shutdown and create another primary partition with ext4 (give about 5 GB to root, 3 GB to the new one) using gparted or whatever from another machine.
+Start with lite version of bullseye (legacy). Boot it up so that the resize partition thing happens. Then shutdown and create another primary partition with ext4 (give about 5 GB to root, 3 GB to the new one) using gparted or whatever from another machine.
 
 It should ask to create new user. use music,music
 
 then boot and run raspi-config
 
 * change hostname to eyesy 
-* disable wait for network on boot <--?? where is this?
-* change wifi location to US
-* change timezone
-* enter wifi ssid <-- ??
 * under interfacing disable serial console, enable port 
 * enable ssh
 
@@ -33,11 +29,6 @@ configure
 
     git config --global user.email "..."
     git config --global user.name "..."
-    
-pull down this repo
-
-    git clone https://github.com/owenosborn/music_rootfs.git
-    cd music_rootfs
 
 # setup WM8731 audio driver with SPI control
 
@@ -75,9 +66,10 @@ add these:
 reboot
 
 # install packages 
-  sudo apt-get install zip jwm xinit x11-utils x11-xserver-utils lxterminal pcmanfm adwaita-icon-theme gtk-theme-switch conky libasound2-dev liblo-dev liblo-tools mpg123 dnsmasq hostapd puredata swig fbi
+  
+    sudo apt-get install zip jwm xinit x11-utils x11-xserver-utils lxterminal pcmanfm adwaita-icon-theme gtk-theme-switch conky libasound2-dev liblo-dev liblo-tools mpg123 dnsmasq hostapd puredata swig fbi
 
-sudo apt-get install gnome-themes-extra python3-pip python3-liblo python3-pygame python3-psutil
+    sudo apt-get install gnome-themes-extra python3-pip python3-liblo python3-pygame python3-psutil
 
 # config
 
