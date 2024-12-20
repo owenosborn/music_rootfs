@@ -310,17 +310,6 @@ on another machine dd and zip it up
 
 maybe also use swapoff in cmdline.txt
 
-this doesn't work:
-
-    pip install pyalsaaudio
-
-so install from source
-    wget https://files.pythonhosted.org/packages/21/a6/3d833079b030d449345e35ce0e2874e330d3612135734f07b9ceace25bcf/pyalsaaudio-0.11.0.tar.gz
-    tar xvzf pyalsaaudio-0.11.0.tar.gz
-    cd pyalsaaudio-0.11.0
-    python3 setup.py build
-    sudo python3 setup.py install
-
 install wiring pi 
     git clone https://github.com/WiringPi/WiringPi.git
     cd WiringPi
@@ -331,3 +320,12 @@ install wiring pi
 
 use this for CPU 
     echo -n performance | sudo tee /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+install waitress for flask server
+
+update wifi drivers:
+sudo apt update
+sudo apt install firmware-realtek
+
+install nload
+
