@@ -329,3 +329,12 @@ sudo apt install firmware-realtek
 
 install nload
 
+don't persist logs
+add 
+Storage=volatile
+to
+/etc/systemd/journald.conf
+then remove old
+sudo rm -rf /var/log/journal
+restart
+
