@@ -343,7 +343,7 @@ Open the sudoers file for editing using visudo:
 
 sudo visudo
 
-Add a rule to disable logging for the nmcli command:
+Add a rule to disable logging for music user:
 
-Defaults!/usr/bin/nmcli !logfile
+Defaults:music !syslog
 
