@@ -338,3 +338,12 @@ then remove old
 sudo rm -rf /var/log/journal
 restart
 
+Don't log nmcli commands
+Open the sudoers file for editing using visudo:
+
+sudo visudo
+
+Add a rule to disable logging for the nmcli command:
+
+Defaults!/usr/bin/nmcli !logfile
+
