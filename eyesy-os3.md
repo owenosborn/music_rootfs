@@ -349,3 +349,6 @@ Defaults:music !syslog
 
 systemctl disable NetworkManager-wait-online.service
 
+actually don't install / use waitress server,  use eventlet instead
+
+pip install eventlet 
