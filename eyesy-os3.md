@@ -350,3 +350,5 @@ Defaults:music !syslog
 systemctl disable NetworkManager-wait-online.service
 
 actually don't install / use waitress server(?)
+
+vc4.tv_norm=NTSC to cmdline.txt
