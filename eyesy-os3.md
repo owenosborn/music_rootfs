@@ -349,6 +349,9 @@ Defaults:music !syslog
 
 systemctl disable NetworkManager-wait-online.service
 
-actually don't install / use waitress server(?)
+add:
 
 vc4.tv_norm=NTSC to cmdline.txt
+
+sudo systemctl disable apt-daily-upgrade.service
+sudo systemctl disable systemd-random-seed.service
