@@ -355,3 +355,11 @@ vc4.tv_norm=NTSC to cmdline.txt
 
 sudo systemctl disable apt-daily-upgrade.service
 sudo systemctl disable systemd-random-seed.service
+
+sudo systemctl disable systemd-journal-flush
+sudo systemctl disable NetworkManager-wait-online.service
+sudo systemctl disable raspi-config.service
+sudo systemctl disable ModemManager.service
+sudo systemctl disable keyboard-setup.service
+
+comment out auto_initramfs=1 or whatever it is in config.txt
