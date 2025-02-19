@@ -365,3 +365,25 @@ sudo systemctl disable dphys-swapfile.service
 
 
 comment out auto_initramfs=1 or whatever it is in config.txt
+
+Disable services
+
+SERVICES=(
+    "apparmor.service"
+    "rpi-eeprom-update.service"
+    "ModemManager.service"
+    "console-setup.service"
+    "keyboard-setup.service"
+    "rpi-display-backlight.service"
+    "glamor-test.service"
+    "splashscreen.service"
+    "cron.service"
+    "dphys-swapfile.service"
+    "rp1-test.service"
+    "NetworkManager-wait-online.service"
+    "e2scrub_reap.service"
+    "raspi-config.service"
+    "apt-daily-upgrade.service"
+    "systemd-random-seed.service"
+    "systemd-journal-flush"
+)
